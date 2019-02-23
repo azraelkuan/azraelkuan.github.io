@@ -156,7 +156,7 @@
 <meta property="og:image" content="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/4b215907.png">
 <meta property="og:image" content="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/765a21e6.png">
 <meta property="og:image" content="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/00491c49.png">
-<meta property="og:updated_time" content="2019-02-23T08:18:34.000Z">
+<meta property="og:updated_time" content="2019-02-23T08:23:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sample-Efficient-Adaptive-Text-to-Speech">
 <meta name="twitter:description" content="paper 文章主要是使用元学习的方法来做少量数据下的自适应tts。 训练：  输入是hts的文本特征和f0，经过上采样层作为wavenet的local condition。 使用多说话人的数据集来自适应说话人，因此会学习到一个说话人的embedding，这个embedding作为wavenet的global condition  三种自适应的策略：  在保持wavenet权重不变的情况下学习sp">
@@ -448,7 +448,7 @@
                 
               
 
-              <time title="Created: 2019-02-23 15:36:53 / Modified: 16:18:34" itemprop="dateCreated datePublished" datetime="2019-02-23T15:36:53+08:00">2019-02-23</time>
+              <time title="Created: 2019-02-23 15:36:53 / Modified: 16:23:42" itemprop="dateCreated datePublished" datetime="2019-02-23T15:36:53+08:00">2019-02-23</time>
             
 
             
@@ -667,7 +667,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -678,7 +678,7 @@
                     
                     <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -1248,6 +1248,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 
