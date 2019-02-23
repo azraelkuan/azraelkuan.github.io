@@ -153,7 +153,7 @@
 <meta property="og:image" content="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/4b215907.png">
 <meta property="og:image" content="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/765a21e6.png">
 <meta property="og:image" content="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/00491c49.png">
-<meta property="og:updated_time" content="2019-02-23T08:23:42.000Z">
+<meta property="og:updated_time" content="2019-02-23T13:25:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sample-Efficient-Adaptive-Text-to-Speech">
 <meta name="twitter:description" content="paper 文章主要是使用元学习的方法来做少量数据下的自适应tts。 训练：  输入是hts的文本特征和f0，经过上采样层作为wavenet的local condition。 使用多说话人的数据集来自适应说话人，因此会学习到一个说话人的embedding，这个embedding作为wavenet的global condition  三种自适应的策略：  在保持wavenet权重不变的情况下学习sp">
@@ -456,7 +456,7 @@
                 
               
 
-              <time title="Created: 2019-02-23 15:36:53 / Modified: 16:23:42" itemprop="dateCreated datePublished" datetime="2019-02-23T15:36:53+08:00">2019-02-23</time>
+              <time title="Created: 2019-02-23 15:36:53 / Modified: 21:25:26" itemprop="dateCreated datePublished" datetime="2019-02-23T15:36:53+08:00">2019-02-23</time>
             
 
             
@@ -562,9 +562,9 @@
 <li>单独对speaker emebdding进行自适应<br>针对一个新说话人的少量数据，随机初始化一个$e_{demo}$, 固定$w$, 输入该说话人的少量数据的文本特征和f0，来学习该说话人的embedding</li>
 </ol>
 <script type="math/tex; mode=display">e_{demo}= \underset{e}{\textbf{argmax}}\sum_{i}\text{log}p(x_{demo}^{i}|l_{demo}^{i},{f0}_{demo}^{i};e,w)</script><ol>
-<li>对整个模型进行自适应<br>相比上面，同时把$w$也加到自适应的参数里面<script type="math/tex; mode=display">(e_{demo}, w_{finetuned})= \underset{e, w}{\textbf{argmax}}\sum_{i}\text{log}p(x_{demo}^{i}|l_{demo}^{i},{f0}_{demo}^{i};e,w)</script></li>
+<li>对整个模型进行自适应<br>相比上面，同时把$w$也加到自适应的参数里面</li>
 </ol>
-<p>这两种方法都可以实现少量数据的自适应，但是训练过程不太一样，在第一种方法中，由于speaker embedding只是低维向量，不是那么容易过拟合，但是在第二种方法中，参数很多，自适应的时候容易对少量数据过拟合，因此需要留出10%的数据计算对数似然作为指标使得模型的训练在适当的时候<br>能够停止，同时还需要采用1中训练好的embedding作为2中的初始化，同时模型的初始化能够极大的提升泛化能力。</p>
+<script type="math/tex; mode=display">(e_{demo}, w_{finetuned})= \underset{e, w}{\textbf{argmax}}\sum_{i}\text{log}p(x_{demo}^{i}|l_{demo}^{i},{f0}_{demo}^{i};e,w)</script><p>这两种方法都可以实现少量数据的自适应，但是训练过程不太一样，在第一种方法中，由于speaker embedding只是低维向量，不是那么容易过拟合，但是在第二种方法中，参数很多，自适应的时候容易对少量数据过拟合，因此需要留出10%的数据计算对数似然作为指标使得模型的训练在适当的时候<br>能够停止，同时还需要采用1中训练好的embedding作为2中的初始化，同时模型的初始化能够极大的提升泛化能力。</p>
 <h3 id="参数化的自适应"><a href="#参数化的自适应" class="headerlink" title="参数化的自适应"></a>参数化的自适应</h3><p>这里主要是用辅助的speaker encoder从给定的数据中预测speaker embedding，同时这个encoder和wavenet是从头一起训练的。</p>
 <script type="math/tex; mode=display">p(x|l,f0,x_{demo},l_{demo},{f0}_{demo};w)=\prod_{t=1}^Tp(x_t|x_{1:t-1},l,f0;e(x_{demo},l_{demo},{f0}_{demo}), w)</script><h3 id="去除说话人相关的信息"><a href="#去除说话人相关的信息" class="headerlink" title="去除说话人相关的信息"></a>去除说话人相关的信息</h3><p>给定的输出是文本特征和f0，但是f0是高度的说话人相关的信息，因此为了尽量让输入的特征说话人无关，因此对f0进行了normalize。</p>
 <script type="math/tex; mode=display">\hat{f0} := (f-E[f_{s}])/std(f_s)</script><h2 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h2><ol>
