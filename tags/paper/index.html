@@ -148,7 +148,7 @@
   <meta name="description" content="Simple Coding">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Thinking and Sharing">
-<meta property="og:url" content="https://azraelkuan.github.io/index.html">
+<meta property="og:url" content="https://azraelkuan.github.io/tags/paper/index.html">
 <meta property="og:site_name" content="Thinking and Sharing">
 <meta property="og:description" content="Simple Coding">
 <meta property="og:locale" content="en">
@@ -161,7 +161,7 @@
 
 
 
-  <link rel="canonical" href="https://azraelkuan.github.io/">
+  <link rel="canonical" href="https://azraelkuan.github.io/tags/paper/">
 
 
 
@@ -171,7 +171,7 @@
   };
 </script>
 
-  <title>Thinking and Sharing</title>
+  <title>Tag: paper | Thinking and Sharing</title>
   
 
 
@@ -219,8 +219,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,7 +257,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -292,7 +291,7 @@
         
         
           
-          <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags menu-item-active">
 
     
     
@@ -339,6 +338,25 @@
   
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
   
 
   
@@ -383,198 +401,51 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
+
+  
+  
+  
+  <div class="post-block tag">
+
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>paper<small>Tag</small>
+        </h2>
+      </div>
+
       
-
-  
-
-  
-  
-  
-
-  
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://azraelkuan.github.io/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kuan Chen">
-      <meta itemprop="description" content="Simple Coding">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thinking and Sharing">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
+          <a class="post-title-link" href="/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/" itemprop="url">
+            
+              <span itemprop="name">Sample-Efficient-Adaptive-Text-to-Speech</span>
+            
+          </a>
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/" class="post-title-link" itemprop="url">Sample-Efficient-Adaptive-Text-to-Speech</a>
-              
-            
-          </h2>
-        
+      </h3>
 
-        <div class="post-meta">
-          <span class="post-time">
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-02-23T15:36:53+08:00" content="2019-02-23">
+          02-23
+        </time>
+      </div>
 
-            
-            
-            
+    </header>
+  </article>
 
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
 
-              
-                
-              
-
-              <time title="Created: 2019-02-23 15:36:53 / Modified: 16:18:34" itemprop="dateCreated datePublished" datetime="2019-02-23T15:36:53+08:00">2019-02-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.5k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://arxiv.org/abs/1809.10460" target="_blank" rel="noopener">paper</a></p>
-<p>文章主要是使用元学习的方法来做少量数据下的自适应tts。</p>
-<p><strong>训练：</strong></p>
-<ol>
-<li>输入是hts的文本特征和f0，经过上采样层作为wavenet的local condition。</li>
-<li>使用多说话人的数据集来自适应说话人，因此会学习到一个说话人的embedding，这个embedding作为wavenet的global condition</li>
-</ol>
-<p><strong>三种自适应的策略：</strong></p>
-<ol>
-<li>在保持wavenet权重不变的情况下学习speaker embedding</li>
-<li>用SGD fine-tuning整个模型</li>
-<li>用训练好的speaker encoder来预测speaker embedding</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/23/Sample-Efficient-Adaptive-Text-to-Speech/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-    
-  </section>
 
   
 
@@ -1187,10 +1058,6 @@
   
 
   
-  
-    
-      
-    
   
 
   
