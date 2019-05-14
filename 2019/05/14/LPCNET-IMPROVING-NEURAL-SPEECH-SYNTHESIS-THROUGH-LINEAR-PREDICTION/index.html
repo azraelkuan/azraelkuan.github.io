@@ -145,7 +145,7 @@
   <meta name="description" content="paper code 简介文章是基于18年2月份的WaveRNN来改进, 不同的是LPCNET是用来作为vocoder的，同时在相同的网络结构下能够得到更好的音质，每秒能进行30亿次的浮点数运算，能够支持在比较差的设备，手机等等上运行。实际上也是进行指令级的优化。 文章给了代码，从代码中其实能够学到很多:)。">
 <meta name="keywords" content="paper,icassp2019,vocoder,tts">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LPCNET, IMPROVING NEURAL SPEECH SYNTHESIS THROUGH LINEAR PREDICTION">
+<meta property="og:title" content="LPCNET Improving Neural Speech Synthesis Through Linear Prediction">
 <meta property="og:url" content="https://azraelkuan.github.io/2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/index.html">
 <meta property="og:site_name" content="Thinking and Sharing">
 <meta property="og:description" content="paper code 简介文章是基于18年2月份的WaveRNN来改进, 不同的是LPCNET是用来作为vocoder的，同时在相同的网络结构下能够得到更好的音质，每秒能进行30亿次的浮点数运算，能够支持在比较差的设备，手机等等上运行。实际上也是进行指令级的优化。 文章给了代码，从代码中其实能够学到很多:)。">
@@ -153,9 +153,9 @@
 <meta property="og:image" content="https://azraelkuan.github.io/2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/2019-05-14-15-42-21.png">
 <meta property="og:image" content="https://azraelkuan.github.io/2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/2019-05-14-19-36-49.png">
 <meta property="og:image" content="https://azraelkuan.github.io/2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/2019-05-14-20-08-05.png">
-<meta property="og:updated_time" content="2019-05-14T12:20:31.000Z">
+<meta property="og:updated_time" content="2019-05-14T12:36:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LPCNET, IMPROVING NEURAL SPEECH SYNTHESIS THROUGH LINEAR PREDICTION">
+<meta name="twitter:title" content="LPCNET Improving Neural Speech Synthesis Through Linear Prediction">
 <meta name="twitter:description" content="paper code 简介文章是基于18年2月份的WaveRNN来改进, 不同的是LPCNET是用来作为vocoder的，同时在相同的网络结构下能够得到更好的音质，每秒能进行30亿次的浮点数运算，能够支持在比较差的设备，手机等等上运行。实际上也是进行指令级的优化。 文章给了代码，从代码中其实能够学到很多:)。">
 <meta name="twitter:image" content="https://azraelkuan.github.io/2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/2019-05-14-15-42-21.png">
 
@@ -174,7 +174,7 @@
   };
 </script>
 
-  <title>LPCNET, IMPROVING NEURAL SPEECH SYNTHESIS THROUGH LINEAR PREDICTION | Thinking and Sharing</title>
+  <title>LPCNET Improving Neural Speech Synthesis Through Linear Prediction | Thinking and Sharing</title>
   
 
 
@@ -430,7 +430,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LPCNET, IMPROVING NEURAL SPEECH SYNTHESIS THROUGH LINEAR PREDICTION
+          <h2 class="post-title" itemprop="name headline">LPCNET Improving Neural Speech Synthesis Through Linear Prediction
 
               
             
@@ -456,7 +456,7 @@
                 
               
 
-              <time title="Created: 2019-05-14 15:27:50 / Modified: 20:20:31" itemprop="dateCreated datePublished" datetime="2019-05-14T15:27:50+08:00">2019-05-14</time>
+              <time title="Created: 2019-05-14 15:27:50 / Modified: 20:36:55" itemprop="dateCreated datePublished" datetime="2019-05-14T15:27:50+08:00">2019-05-14</time>
             
 
             
@@ -550,7 +550,7 @@ E(z) = 1 - \alpha z^{-1} \qquad \alpha=0.85</script><p>合成结果可以通过�
 D(z) = \frac{1}{1-\alpha z^{-1}}</script><p>这种方法能够有效的减少噪声，并且使得8bit可以作为高音质音频的输出。</p>
 <h3 id="线性估测"><a href="#线性估测" class="headerlink" title="线性估测"></a>线性估测</h3><p>线性预测的值可以从之前的采样点计算</p>
 <script type="math/tex; mode=display">
-p_{t} = \sum_{k=1}^{M}a_{k}s_{t-k}</script><p>$s_{t}$是采样点在t时刻的值，$a_k$是M阶线性预测系数的值，并且是可以根据18维的bark-scale cepstrum 计算出来的。</p>
+p_{t} = \sum_{k=1}^{M}a_{k}s_{t-k}</script><p>$s_{t}$是采样点在t时刻的值，$a_k$是M阶线性预测系数的值，并且是可以根据18维的bark-scale cepstrum 计算出来的。</p>
 <p>因此可以使用线性预测器来帮助神经网络进行训练，这里可以直接预测激励参数$e<em>{t}=s</em>{t}-p<em>{t}$，而不是采样点的值$s</em>{t}$，能够帮助减少u-law的噪音，因为激励参数的幅度相比原始信号点更低。</p>
 <p>但是在输入并没有直接给$e<em>{t-1}$，而是$e</em>{t-1}, s_{t-1}, p_t$这样会更好的帮助训练。</p>
 <h3 id="输出层"><a href="#输出层" class="headerlink" title="输出层"></a>输出层</h3><p>输出层上才用了双层的线性层来更容易的计算输出概率。</p>
@@ -981,7 +981,7 @@ P^{\prime}(e_t)=R(max[R([P(e_t)^c]) - T, 0])</script><p>$R(\cdot)$表示重新�
   var disqus_config = function() {
     this.page.url = "https://azraelkuan.github.io/2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/";
     this.page.identifier = "2019/05/14/LPCNET-IMPROVING-NEURAL-SPEECH-SYNTHESIS-THROUGH-LINEAR-PREDICTION/";
-    this.page.title = 'LPCNET, IMPROVING NEURAL SPEECH SYNTHESIS THROUGH LINEAR PREDICTION';
+    this.page.title = 'LPCNET Improving Neural Speech Synthesis Through Linear Prediction';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
