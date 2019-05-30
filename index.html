@@ -470,7 +470,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-30 17:16:22" itemprop="dateModified" datetime="2019-05-30T17:16:22+08:00">2019-05-30</time>
+                <time title="Modified: 2019-05-30 17:19:49" itemprop="dateModified" datetime="2019-05-30T17:19:49+08:00">2019-05-30</time>
               
             
           </span>
@@ -546,9 +546,7 @@
 
       
         
-          
-            <a id="more"></a>
-<h5 id="LPCNET-Improving-Neural-Speech-Synthesis-through-Linear-Prediction"><a href="#LPCNET-Improving-Neural-Speech-Synthesis-through-Linear-Prediction" class="headerlink" title="LPCNET: Improving Neural Speech Synthesis through Linear Prediction"></a>LPCNET: Improving Neural Speech Synthesis through Linear Prediction</h5><p><a href="https://ieeexplore.ieee.org/document/8682804" target="_blank" rel="noopener">paper</a> <a href="https://github.com/mozilla/LPCNet" target="_blank" rel="noopener">code</a></p>
+          <h5 id="LPCNET-Improving-Neural-Speech-Synthesis-through-Linear-Prediction"><a href="#LPCNET-Improving-Neural-Speech-Synthesis-through-Linear-Prediction" class="headerlink" title="LPCNET: Improving Neural Speech Synthesis through Linear Prediction"></a>LPCNET: Improving Neural Speech Synthesis through Linear Prediction</h5><p><a href="https://ieeexplore.ieee.org/document/8682804" target="_blank" rel="noopener">paper</a> <a href="https://github.com/mozilla/LPCNet" target="_blank" rel="noopener">code</a></p>
 <p>这篇文章主要是提出了一个基于线性预测的高质量声码器</p>
 <p>主要贡献:</p>
 <ul>
@@ -558,47 +556,15 @@
 <li>稀疏化，向量化矩阵，对核心代码进行优化，代码开源</li>
 </ul>
 <p>总结：<br>这篇文章开源了代码，而且跑出来的效果真的很不错，力推！</p>
-<h5 id="Phonemic-level-Duration-Control-Using-Attention-Alignment-for-Natural-Speech-Synthesis"><a href="#Phonemic-level-Duration-Control-Using-Attention-Alignment-for-Natural-Speech-Synthesis" class="headerlink" title="Phonemic-level Duration Control Using Attention Alignment for Natural Speech Synthesis"></a>Phonemic-level Duration Control Using Attention Alignment for Natural Speech Synthesis</h5><p><a href="https://ieeexplore.ieee.org/document/8683827" target="_blank" rel="noopener">paper</a></p>
-<p>这篇文章主要是为了解决tacotron在生成的时候不能局部的控制时长的问题以及训练时alignment比较难训好</p>
-<p>主要贡献：</p>
-<ul>
-<li>使用SPPAS得到phone序列的时长，把时长信息拼到encoder的convolution层的输出（包括起始点，终止点，时长）最后再过lstm，从而更容易的训练，合成的时候也能够控制时长</li>
-<li>可以根据得到的时长信息生成alignment矩阵，和tacotron2预测的alignment之间算一个loss，相当于有一个hard align的teacher，更快的学到alignment的信息</li>
-</ul>
-<p>不足：</p>
-<ul>
-<li>baseline实在太差</li>
-<li>比较的时候应该是用的手动设置的时长，并没有单独的时长模型，结果不一定可靠</li>
-</ul>
-<h5 id="Disentangling-Correlated-Speaker-and-Noise-for-Speech-Synthesis-via-Data-Augmentation-and-Adversarial-Factorization"><a href="#Disentangling-Correlated-Speaker-and-Noise-for-Speech-Synthesis-via-Data-Augmentation-and-Adversarial-Factorization" class="headerlink" title="Disentangling Correlated Speaker and Noise for Speech Synthesis via Data Augmentation and Adversarial Factorization"></a>Disentangling Correlated Speaker and Noise for Speech Synthesis via Data Augmentation and Adversarial Factorization</h5><p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8683561" target="_blank" rel="noopener">paper</a></p>
-<p>这篇文章目的在于利用带noise的数据训练tacotron使得最后出来的是clean的音频，一般噪音没有label，同时和说话人极度相关，因此很难建模，本文利用了factorized latent variables分别建模说话人和其他声学信息（噪音等等）从而分离信息，最后可以用clean的信息来合成音频，基本架构可以参考之前的GMVAE</p>
-<p>主要贡献：</p>
-<ul>
-<li>提出了基于factorized latent variables的条件生成模型，分离说话人信息和其它信息</li>
-<li>使用了说话人不相关的说话人数据增广，当然noise必须要有想要的label</li>
-<li>对抗训练来更有效的分离信息</li>
-</ul>
-<h5 id="Representation-Mixing-for-TTS-Synthesis"><a href="#Representation-Mixing-for-TTS-Synthesis" class="headerlink" title="Representation Mixing for TTS Synthesis"></a>Representation Mixing for TTS Synthesis</h5><p><a href="https://ieeexplore.ieee.org/document/8682880" target="_blank" rel="noopener">paper</a></p>
-<p>这篇文章主要提出了兼容character和phoneme序列作为输出的思想，解决发音不对的问题。给两个sequence，一个字符序列，一个phoneme序列，然后一个mask序列，控制最后encoder的输入。同时提出了一个基于 <a href="https://gist.github.com/kastnerkyle/aa559b814a6eba927a74ac51b75eb41e" target="_blank" rel="noopener">L-BFGS</a> 的合成方法。</p>
-<p>主要贡献：</p>
-<ul>
-<li>主要融合了character和phoneme两种序列</li>
-<li>新的vocoder，虽然实时率不高，有效提升gl的质量</li>
-</ul>
-<h5 id="Robust-and-Fine-grained-Prosody-Control-of-End-to-end-Speech-Synthesis"><a href="#Robust-and-Fine-grained-Prosody-Control-of-End-to-end-Speech-Synthesis" class="headerlink" title="Robust and Fine-grained Prosody Control of End-to-end Speech Synthesis"></a>Robust and Fine-grained Prosody Control of End-to-end Speech Synthesis</h5><p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8683501" target="_blank" rel="noopener">paper</a></p>
-<p>这篇文章主要介绍了端到端语音合成中怎么在某个时刻变化韵律的问题。之前的很多文章比如gst，gmvae等等等都是global的embedding，不能做到对生成的声音的局部控制。文章中介绍了两种方法，分别在encoder端和decoder端加入prosody embedding。<br>在encoder端，需要用prosody embedding和encoder outputs算一个attention来解决长度不匹配的问题。<br>在decoder端，其实训练时reference audio和target audio sequece长度是一样的，但是作者使用了tacotron1的模型，一次decode r 帧，因此可以在reference encoder上加入stride或者做一个pooling保持长度一致。</p>
-<p>主要贡献：</p>
-<ul>
-<li>提出了局部控制韵律的方法，两种控制的方式，encoder和decoder端都可以</li>
-</ul>
-<h5 id="Neural-Source-filter-based-Waveform-Model-for-Statistical-Parametric-Speech-Synthesis"><a href="#Neural-Source-filter-based-Waveform-Model-for-Statistical-Parametric-Speech-Synthesis" class="headerlink" title="Neural Source-filter-based Waveform Model for Statistical Parametric Speech Synthesis"></a>Neural Source-filter-based Waveform Model for Statistical Parametric Speech Synthesis</h5><p><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=8682298" target="_blank" rel="noopener">paper</a></p>
-<p>并行声码器，相比之前的很多的单独训练student模型，这里由f0产生激励信号，最后算多个stft loss。<br>利用pytorch复现实验，<a href="http://202.120.38.125:12335/nsf/index.html" target="_blank" rel="noopener">demo</a>.</p>
-<p>主要贡献：</p>
-<ul>
-<li>简化了之前训练student的难度，相比之前迭代的次数更少，训练的更快</li>
-</ul>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/15/ICASSP2019-TTS-Summary/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
